@@ -1,0 +1,94 @@
+{
+  "name": "openwhip-max",
+  "version": "1.0.4",
+  "description": "Desktop agent that listens for phone whip-crack gestures and sends Ctrl+C to the focused terminal.",
+  "main": "main.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OsaidAlhomedy/OpenWhipMax-Agent"
+  },
+  "author": "Osaid Alhomedy",
+  "homepage": "https://github.com/OsaidAlhomedy/OpenWhipMax-Agent#readme",
+  "bugs": {
+    "url": "https://github.com/OsaidAlhomedy/OpenWhipMax-Agent/issues"
+  },
+  "keywords": [
+    "electron",
+    "terminal",
+    "gesture",
+    "whip",
+    "ctrl-c",
+    "desktop"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "openwhip-max": "./bin/openwhipmax.js"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "start": "electron --no-sandbox .",
+    "postinstall": "electron-rebuild -f -w koffi",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux"
+  },
+  "build": {
+    "appId": "io.github.osaid920.openwhip-max",
+    "productName": "OpenWhipMax",
+    "files": [
+      "main.js",
+      "preload.js",
+      "overlay.html",
+      "overlay.js",
+      "pairing.html",
+      "sounds/**",
+      "assets/**",
+      "bin/**"
+    ],
+    "extraResources": [
+      {
+        "from": "sounds",
+        "to": "sounds"
+      },
+      {
+        "from": "assets",
+        "to": "assets"
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Development"
+    }
+  },
+  "dependencies": {
+    "@electron/rebuild": "^3.6.0",
+    "bonjour-service": "^1.2.1",
+    "electron": "^30.0.0",
+    "qrcode": "^1.5.3",
+    "koffi": "^2.9.0",
+    "sound-play": "^1.1.0",
+    "uuid": "^9.0.1",
+    "ws": "^8.17.1"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.13.3"
+  }
+}

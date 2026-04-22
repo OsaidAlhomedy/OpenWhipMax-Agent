@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Whip handle -->
+  <rect x="10" y="90" width="50" height="14" rx="7" fill="#8B5A2B" />
+  <!-- Whip lash — S-curve crack -->
+  <path
+    d="M58 97
+       C 80 97, 90 70, 115 75
+       C 140 80, 145 55, 160 45
+       C 170 38, 180 42, 188 35"
+    stroke="#D4A017"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- Crack tip spark -->
+  <circle cx="188" cy="35" r="6" fill="#FFE066" opacity="0.9" />
+  <line x1="188" y1="35" x2="196" y2="22" stroke="#FFE066" stroke-width="2" stroke-linecap="round" />
+  <line x1="188" y1="35" x2="200" y2="38" stroke="#FFE066" stroke-width="2" stroke-linecap="round" />
+  <line x1="188" y1="35" x2="194" y2="46" stroke="#FFE066" stroke-width="2" stroke-linecap="round" />
+  <!-- CRACK! text -->
+  <text
+    x="100" y="165"
+    font-family="Impact, Arial Black, sans-serif"
+    font-size="36"
+    font-weight="900"
+    fill="#FFE066"
+    text-anchor="middle"
+    letter-spacing="3"
+    paint-order="stroke"
+    stroke="#8B5A2B"
+    stroke-width="3"
+  >CRACK!</text>
+</svg>
