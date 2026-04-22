@@ -1,6 +1,6 @@
 {
   "name": "openwhip-max",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Desktop agent that listens for phone whip-crack gestures and sends Ctrl+C to the focused terminal.",
   "main": "main.js",
   "license": "MIT",
