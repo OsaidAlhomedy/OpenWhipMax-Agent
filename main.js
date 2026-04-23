@@ -451,12 +451,12 @@ function startWss() {
   });
 
   wss.on("connection", (ws, req) => {
-    // Token auth
-    const authHeader = req.headers["authorization"] || "";
-    const bearerToken = authHeader.startsWith("Bearer ")
-      ? authHeader.slice(7).trim()
-      : "";
-    if (bearerToken !== token) {
+    // Token auth — accept from URL query string (?token=) or Authorization header
+    const urlToken = new URL(req.url, "http://localhost").searchParams.get("token") ?? "";
+    const authHeader = req.headers["authorization"] ?? "";
+    const headerToken = authHeader.startsWith("Bearer ") ? authHeader.slice(7).trim() : "";
+    const incomingToken = urlToken || headerToken;
+    if (incomingToken !== token) {
       console.warn(
         "[openwhipmax] Rejected connection — bad token from",
         req.socket.remoteAddress,
